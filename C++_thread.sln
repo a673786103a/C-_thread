@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "线程的创建", "线程的创建\线程的创建.vcxproj", "{A38D592C-3257-45F7-A0B4-705D01B533EA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "互斥锁", "互斥锁\互斥锁.vcxproj", "{707F1A7E-4469-4F94-A86D-91DF453714D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{A38D592C-3257-45F7-A0B4-705D01B533EA}.Release|x64.Build.0 = Release|x64
 		{A38D592C-3257-45F7-A0B4-705D01B533EA}.Release|x86.ActiveCfg = Release|Win32
 		{A38D592C-3257-45F7-A0B4-705D01B533EA}.Release|x86.Build.0 = Release|Win32
+		{707F1A7E-4469-4F94-A86D-91DF453714D1}.Debug|x64.ActiveCfg = Debug|x64
+		{707F1A7E-4469-4F94-A86D-91DF453714D1}.Debug|x64.Build.0 = Debug|x64
+		{707F1A7E-4469-4F94-A86D-91DF453714D1}.Debug|x86.ActiveCfg = Debug|Win32
+		{707F1A7E-4469-4F94-A86D-91DF453714D1}.Debug|x86.Build.0 = Debug|Win32
+		{707F1A7E-4469-4F94-A86D-91DF453714D1}.Release|x64.ActiveCfg = Release|x64
+		{707F1A7E-4469-4F94-A86D-91DF453714D1}.Release|x64.Build.0 = Release|x64
+		{707F1A7E-4469-4F94-A86D-91DF453714D1}.Release|x86.ActiveCfg = Release|Win32
+		{707F1A7E-4469-4F94-A86D-91DF453714D1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

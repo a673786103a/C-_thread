@@ -109,7 +109,7 @@ void test02() {
 //测试通过仿函数 和 成员函数创建的线程
 void test03() {
 	Hello hello;
-	thread t4(hello, "123");
+    thread t4(hello, "123");
 	World world;
 }
 //测试线程分离
