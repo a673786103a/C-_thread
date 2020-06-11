@@ -20,6 +20,7 @@ std::string data;
 bool ready = false;  // 条件
 bool processed = false;  // 条件
 
+/***************************--begin************************************************/
 void Worker() {
 	std::unique_lock<std::mutex> lock(mutex);
 
@@ -67,8 +68,15 @@ void test01() {
 	worker.join();
 
 }
+/***************************--end************************************************/
 
 
+
+
+
+
+
+/***************************生产者-消费者begin********************************/
 //生产者
 void function_1() {
 	int count = 10;
@@ -88,7 +96,7 @@ void function_2() {
 		std::unique_lock<std::mutex> locker(mu);
 		while (q.empty())
 			cond.wait(locker); // Unlock mu and wait to be notified在判断队列是否为空的时候，使用的是while(q.empty())，而不是if(q.empty())，这是因为wait()从阻塞到返回，不一定就是由于notify_one()函数造成的，还有可能由于系统的不确定原因唤醒（可能和条件变量的实现机制有关），这个的时机和频率都是不确定的，被称作伪唤醒，如果在错误的时候被唤醒了，执行后面的语句就会错误，所以需要再次判断队列是否为空，如果还是为空，就继续wait()阻塞。
-
+								// 这个wait被调用的时候是否会自动调用locker.lock()?  如果会，那么是不是加了两次锁？
 		data = q.back();
 		q.pop_back();
 		locker.unlock();		//这里为什么要解锁？ -- Once notified (explicitly, by some other thread), the function unblocks and calls lck.lock()		
@@ -101,6 +109,11 @@ void test02() {
 	t1.join();
 	t2.join();
 }
+/***************************生产者-消费者end**********************************/
+
+
+
+
 
 
 /**************************wait函数 -begin**************************************/
@@ -139,6 +152,13 @@ void test03()
 
 
 
+
+
+
+
+
+
+
 /**************************notify_one函数 -begin**************************************/
 std::mutex mtx_notify_one;
 std::condition_variable produce, cconsume;		//两个条件变量
@@ -172,6 +192,14 @@ void test04() {
 	}
 }
 /**************************notify_one函数 -end**************************************/
+
+
+
+
+
+
+
+
 int main() {
 	
 	//test02();
